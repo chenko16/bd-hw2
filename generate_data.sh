@@ -1,6 +1,6 @@
 #!/bin/bash
 cur_date=$(date +"%s") # get current datetime
-rows=1000
+rows=10000
 groups=2
 
 echo "Start generation..."
@@ -9,7 +9,7 @@ echo "Start generation..."
 i=1
 while [ "$i" -le "$rows" ]
 do
-  tmp_date=$((cur_date + i * 10)) # increment time by 10 seconds each iteration
+  tmp_date=$(((cur_date + i * 10) * 1000)) # increment time by 10 seconds each iteration
 
   id=1
   while [ "$id" -le "$groups" ] # generate metric for each group

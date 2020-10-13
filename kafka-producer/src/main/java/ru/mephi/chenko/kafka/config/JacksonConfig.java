@@ -1,4 +1,4 @@
-package ru.mephi.chenko.config;
+package ru.mephi.chenko.kafka.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -11,6 +11,11 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 @Configuration
 public class JacksonConfig {
 
+    /**
+     * Returns ObjectMapper with custom configuration
+     * @param builder ObjectMapper builder
+     * @return ObjectMapper
+     */
     @Bean
     @Primary
     public ObjectMapper objectMapper(Jackson2ObjectMapperBuilder builder) {
