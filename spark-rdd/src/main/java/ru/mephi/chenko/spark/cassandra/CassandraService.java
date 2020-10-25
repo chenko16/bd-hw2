@@ -24,6 +24,7 @@ public class CassandraService {
         CassandraConnector connector = CassandraConnector.apply(sparkContext.getConf());
 
         try (CqlSession session = connector.openSession()) {
+            session.execute("CREATE KEYSPACE IF NOT EXISTS hw2 WITH REPLICATION  = {'class': 'SimpleStrategy', 'replication_factor': 1}");
             //Создаю таблицу для входных данных
             session.execute("CREATE TABLE IF NOT EXISTS hw2.metric (id int, time timestamp, value int, " +
                     "PRIMARY KEY ((id), time))");

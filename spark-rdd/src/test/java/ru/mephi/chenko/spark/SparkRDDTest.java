@@ -52,7 +52,7 @@ public class SparkRDDTest {
     @Test
     public void testMetricAggregation() {
         JavaRDD<MetricDto> metricRdd = sparkContext.parallelize(input, 2);
-        JavaRDD<AggregatedMetricDto> resultRdd = MetricRDDService.aggregateMetric(metricRdd, 5);
+        JavaRDD<AggregatedMetricDto> resultRdd = MetricRDDService.aggregateMetric(metricRdd, "5m");
         List<AggregatedMetricDto> resultList = resultRdd.collect();
         assertEquals(expectedOutput.size(), resultList.size());
         assertTrue(resultList.containsAll(expectedOutput));
