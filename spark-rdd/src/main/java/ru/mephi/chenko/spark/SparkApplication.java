@@ -27,7 +27,6 @@ public class SparkApplication {
         }
 
         SparkConf conf = new SparkConf()
-                .setMaster("local[*]")
                 .set("spark.cassandra.connection.host", "127.0.0.1")
                 .setAppName("Spark RDD metric aggregator");
 
