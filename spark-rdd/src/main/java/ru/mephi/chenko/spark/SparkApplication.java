@@ -17,7 +17,7 @@ public class SparkApplication {
 
     public static void main(String[] args) throws IllegalAccessException {
         if(args.length < 1) {
-            System.out.println("Usage: sparkApp minutesAggregateBy...");
+            System.out.println("Usage: sparkApp scaleList...");
             return;
         }
 
