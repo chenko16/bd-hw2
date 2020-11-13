@@ -2,8 +2,11 @@ package ru.mephi.chenko.spark.util;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class DateUtil {
+
+    private static final Integer WINDOW_MINUTES_SIZE = 30;
 
     /**
      * Round date
@@ -47,5 +50,21 @@ public class DateUtil {
         if(!scale.toLowerCase().matches("\\d+m") && !scale.toLowerCase().matches("\\d+h")) {
             throw new IllegalAccessException("Illegal scale format");
         }
+    }
+
+    /**
+     * Returns window start time
+     * @return window start time
+     */
+    public static Date getWindowStartTime() {
+        return new Date(System.currentTimeMillis() - TimeUnit.MINUTES.toMillis(WINDOW_MINUTES_SIZE));
+    }
+
+    /**
+     * Returns window end time
+     * @return window end time
+     */
+    public static Date getWindowEndTime() {
+        return new Date(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(WINDOW_MINUTES_SIZE));
     }
 }
